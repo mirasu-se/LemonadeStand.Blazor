@@ -1,0 +1,26 @@
+﻿[
+  {
+    "Id": 0,
+    "Image": "/img/api/juice/Apple-Juice.jpg",
+    "Name": "Apple Lemonade",
+    "PricePerGlass": 10,
+    "AllowedFruit": "Apple",
+    "ConsumptionPerGlass": 2.5
+  },
+  {
+    "Id": 1,
+    "Image": "/img/api/juice/Melon-Juice.jpg",
+    "Name": "Melon Lemonade",
+    "PricePerGlass": 12,
+    "AllowedFruit": "Melon",
+    "ConsumptionPerGlass": 0.5
+  },
+  {
+    "Id": 2,
+    "Image": "/img/api/juice/Orange-Juice.jpg",
+    "Name": "Orange Lemonade",
+    "PricePerGlass": 9,
+    "AllowedFruit": "Orange",
+    "ConsumptionPerGlass": 1
+  }
+]

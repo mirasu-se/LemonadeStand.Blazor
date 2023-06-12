@@ -1,0 +1,31 @@
+﻿[
+  {
+    "Id": 1,
+    "Image": "/img/api/coctail/PineappleLemonGingerBliss.jpg",
+    "Name": "PPineapple Lemoging Bliss",
+    "PricePerGlass": 50,
+    "GlassQuantityPerMix": 3,
+    "CoctailQuantity": [
+      {
+        "Name": "Pineapples",
+        "Quantity": 2,
+        "Unit": "Peace"
+      },
+      {
+        "Name": "Ginger",
+        "Quantity": 2,
+        "Unit": "Tablespoon"
+      },
+      {
+        "Name": "Lemon",
+        "Quantity": 1,
+        "Unit": "Peace"
+      },
+      {
+        "Name": "Rum",
+        "Quantity": 0.03,
+        "Unit": "Stick"
+      }
+    ]
+  }
+]

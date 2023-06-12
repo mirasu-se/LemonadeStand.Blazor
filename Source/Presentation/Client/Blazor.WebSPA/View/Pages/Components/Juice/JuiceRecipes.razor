@@ -1,0 +1,44 @@
+﻿@using Domain.Entities.Recipes.Juice;
+@using Domain.Services;
+@inject IRecipeService recipeService;
+
+<h3>Juices Availible</h3>
+
+<div class="d-flex justify-content-start" style="margin-top:30px;">
+    <div class="row">
+        @if (recipes == null)
+        {
+            <p><em>There is no availible recipes!</em></p>
+        }
+        else
+        {
+            @foreach (var recipe in recipes)
+            {
+                <div class="col-md-4">
+                    <div class="card" style="width: 18rem;">
+                        <img src="@recipe.Image" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">@recipe.Name</h5>
+                            <hr />
+                            <h6 class="card-subtitle mb-2">Price per glass:</h6>
+                            <p>@recipe.PricePerGlass SEK</p>
+                            <h6 class="card-text">Fruits needed per glass:</h6>
+                            <p>@recipe.ConsumptionPerGlass @recipe.AllowedFruit (s)</p>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+</div>
+
+@code {
+
+    private IEnumerable<JuiceRecipe> recipes;
+
+    protected override async Task OnInitializedAsync()
+    {
+        recipes = await recipeService.GetAllJuicesAsync();
+    }
+
+}

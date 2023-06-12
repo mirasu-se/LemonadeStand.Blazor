@@ -1,0 +1,56 @@
+﻿@using Domain.Entities.Recipes.Coctail;
+@using Domain.Services;
+@inject IRecipeService recipeService;
+
+<h3>Coctails Availible</h3>
+
+<div class="d-flex justify-content-start" style="margin-top:30px;">
+    <div class="row">
+        @if (coctails == null)
+        {
+            <p><em>There is no availible recipes!</em></p>
+        }
+        else
+        {
+            @foreach (var coctail in coctails)
+            {
+                <div class="col-md-4">
+                    <div class="card" style="width: 22rem;">
+                        <img src="@coctail.Image" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">@coctail.Name</h5>
+                            <hr />
+                            <h6 class="card-subtitle mb-2">Price per glass:</h6>
+                            <p>@coctail.PricePerGlass SEK</p>
+                            <span class="card-text">Number of glasses per recipe:</span>
+                            <p>@coctail.GlassQuantityPerMix</p>
+                            <ol class="list-group list-group-numbered">
+                                @foreach (var item in coctail.CoctailQuantity)
+                                {
+
+                                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                                        <div class="fw-bold">@item.Name</div>@item.Unit (s)
+                                        <span class="badge bg-success rounded text-light p-2">@item.Quantity </span>
+                                    </li>
+
+                                }
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+
+            }
+        }
+    </div>
+</div>
+
+@code {
+
+    private IEnumerable<CoctailRecipe> coctails;
+
+    protected override async Task OnInitializedAsync()
+    {
+        coctails = await recipeService.GetAllCoctailsAsync();
+    }
+
+}

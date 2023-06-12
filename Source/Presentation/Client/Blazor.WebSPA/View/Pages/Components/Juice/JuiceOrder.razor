@@ -1,0 +1,113 @@
+﻿@inject HttpClient Http;
+@using Domain.Services;
+@using Domain.Services.Juice;
+@using Blazor.WebSPA.ViewModels;
+@using Blazor.WebSPA.ViewModels.Juice;
+@inject JuiceRecipeViewModel recipeViewModel;
+@inject JuiceOrderViewModel orderViewModel;
+@inject IRecipeService recipeService;
+@inject IFruitPressService fruitPressService;
+
+<h3>Customer Order</h3>
+
+<section class="form-container">
+    <EditForm EditContext="@recipeViewModel.EditFormContext" OnValidSubmit="HandleValidSubmit" @onreset="HandleReset">
+        <div class=" form-group col">
+            <ul class="validation-errors bg-light" style="background-color: @recipeViewModel.StatusBG !important; border:none;">
+                <li class="validation-message" style="color:@recipeViewModel.StatusFC !important;">@recipeViewModel.ProductionResult</li>
+            </ul>
+        </div>
+        <div class=" form-group col">
+            <DataAnnotationsValidator />
+            <ValidationSummary />
+        </div>
+        <div class="form-group col">
+            <label>Select recipe:</label>
+            <InputSelect ValueExpression="@(()=>orderViewModel.Id)" ValueChanged="@((int id) => OnValueChanged(id))" class="form-control">
+                @if (recipeViewModel.Recipes != null)
+                {
+                    @foreach (var recipe in recipeViewModel.Recipes)
+                    {
+                        <option value="@recipe.Id">@recipe.Name</option>
+                    }
+                }
+            </InputSelect>
+            <ValidationMessage For="@(() => orderViewModel.Id)" />
+        </div>
+        <div class="form-group col">
+            <label>Order quantity:</label>
+            <InputNumber @bind-Value="orderViewModel.OrderQuantity" min="0" class="form-control" />
+            <ValidationMessage For="@(() => orderViewModel.OrderQuantity)" />
+        </div>
+        <div class="form-group col">
+            <label>Money paid</label>
+            <InputNumber @bind-Value="orderViewModel.MoneyAmountReceived" min="0" class="form-control" />
+            <ValidationMessage For="@(() => orderViewModel.MoneyAmountReceived)" />
+        </div>
+        <div class="form-group col">
+            <label>Apples added:</label>
+            <InputNumber @bind-Value="orderViewModel.AppleQuantity" min="0.0" step="0.5" class="form-control" />
+            <ValidationMessage For="@(() => orderViewModel.AppleQuantity)" />
+        </div>
+        <div class="form-group col">
+            <label>Melons added:</label>
+            <InputNumber @bind-Value="orderViewModel.MelonQuantity" min="0.0" step="0.5" class="form-control" />
+            <ValidationMessage For="@(() => orderViewModel.MelonQuantity)" />
+        </div>
+        <div class="form-group col">
+            <label>Oranges added:</label>
+            <InputNumber @bind-Value="orderViewModel.OrangeQuantity" min="0.0" step="0.5" class="form-control" />
+            <ValidationMessage For="@(() => orderViewModel.OrangeQuantity)" />
+        </div>
+        <div class="form-group col">
+            <div class="text-left">
+                <button type="submit" class="btn btn-success" style="margin-top:20px;">PROCESS ORDER</button>
+            </div>
+        </div>
+    </EditForm>
+</section>
+
+@code {
+
+    protected override async Task OnInitializedAsync()
+    {
+        recipeViewModel.Recipes = await recipeService.GetAllJuicesAsync();
+        recipeViewModel.Recipe = await recipeService.GetJuiceByIdAsync(orderViewModel.Id);
+    }
+
+    protected override void OnInitialized()
+    {
+        recipeViewModel.EditFormContext = new EditContext(orderViewModel);
+    }
+
+    private async Task OnValueChanged(int id)
+    {
+        recipeViewModel.Recipe = await recipeService.GetJuiceByIdAsync(id);
+    }
+
+    private void HandleValidSubmit()
+    {
+
+        var fruits = fruitPressService.GenerateFruitDictionary(orderViewModel.AppleQuantity, orderViewModel.MelonQuantity, orderViewModel.OrangeQuantity);
+        var result = fruitPressService.Produce(recipeViewModel.Recipe, fruits, orderViewModel.MoneyAmountReceived, orderViewModel.OrderQuantity);
+
+        if (result.FirstOrDefault().Substring(0, 1) == "E")
+        {
+            recipeViewModel.StatusBG = "#F8D7DA";
+            recipeViewModel.StatusFC = "#A22029";
+        }
+        else
+        {
+            recipeViewModel.StatusBG = "#C2F5C7";
+            recipeViewModel.StatusFC = "green";
+        }
+
+        recipeViewModel.ProductionResult = String.Join("\n", result.ToArray());
+    }
+
+    private void HandleReset()
+    {
+        recipeViewModel.EditFormContext = new EditContext(orderViewModel);
+    }
+
+}

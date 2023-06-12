@@ -1,0 +1,10 @@
+﻿[
+  {
+    "Id": 1,
+    "Image": "/img/api/juice/Apple-Juice.jpg",
+    "Name": "Apple Lemonade",
+    "PricePerGlass": 10,
+    "AllowedFruit": "Apple",
+    "ConsumptionPerGlass": 2.5
+  }
+]

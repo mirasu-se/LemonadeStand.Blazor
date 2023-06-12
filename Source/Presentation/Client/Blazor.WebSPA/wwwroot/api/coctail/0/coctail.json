@@ -1,0 +1,31 @@
+﻿[
+  {
+    "Id": 0,
+    "Image": "/img/api/coctail/SpicyGreenJuice.jpg",
+    "Name": "Spicy Green Juice",
+    "PricePerGlass": 65,
+    "GlassQuantityPerMix": 3,
+    "CoctailQuantity": [
+      {
+        "Name": "Apple",
+        "Quantity": 6,
+        "Unit": "Peace"
+      },
+      {
+        "Name": "Cucumbers",
+        "Quantity": 2,
+        "Unit": "Peace"
+      },
+      {
+        "Name": "Jalapeño",
+        "Quantity": 0.25,
+        "Unit": "Slice"
+      },
+      {
+        "Name": "Tequila",
+        "Quantity": 0.03,
+        "Unit": "Liter"
+      }
+    ]
+  }
+]

@@ -1,0 +1,31 @@
+﻿[
+  {
+    "Id": 2,
+    "Image": "/img/api/coctail/StrawberryPearAppleDream.jpg",
+    "Name": "Straw PearApple Dream",
+    "PricePerGlass": 60,
+    "GlassQuantityPerMix": 3,
+    "CoctailQuantity": [
+      {
+        "Name": "Apple",
+        "Quantity": 3,
+        "Unit": "Peace"
+      },
+      {
+        "Name": "Pear",
+        "Quantity": 3,
+        "Unit": "Peace"
+      },
+      {
+        "Name": "Strawberry",
+        "Quantity": 12,
+        "Unit": "Peace"
+      },
+      {
+        "Name": "Gin",
+        "Quantity": 0.03,
+        "Unit": "Liter"
+      }
+    ]
+  }
+]

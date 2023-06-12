@@ -1,0 +1,76 @@
+﻿<nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm p-3 mb-5 bg-white rounded" style="margin:auto">
+    <a href="/" class="navbar-brand mr-auto">
+        <img src="/img/logo/app_logo.png" />
+    </a>
+    <button class="navbar-toggler collapsed border-0" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <NavLink class="nav-link text-secondary" href="" Match="NavLinkMatch.All">
+                    <i class="fa fa-home" aria-hidden="true"></i>
+                    <span class="nav-link-text"></span>Home
+                </NavLink>
+            </li>
+            <li class="nav-item">
+                <NavLink class="nav-link text-secondary" href="about">
+                    <i class="fa fa-users" aria-hidden="true"></i>
+                    <span class="nav-link-text">Our Story</span>
+                </NavLink>
+            </li>
+            <li class="nav-item dropdown">
+                <NavLink class="nav-link text-secondary dropdown-toggle" href="#" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fa fa-glass" aria-hidden="true"></i>
+                    <span class="nav-link-text">Our Products</span>
+                </NavLink>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <NavLink class="nav-link" href="juice">
+                        <i class="fas fa-blender" aria-hidden="true" data-toggle="dropdown"></i>
+                        <span class="dropdown-nav-link">Juices</span>
+                    </NavLink>
+                    <NavLink class="nav-link" href="coctail">
+                        <i class="fas fa-cocktail" aria-hidden="true"></i>
+                        <span class="dropdown-nav-link">Coctails</span>
+                    </NavLink>
+                </div>
+            </li>
+            <li class="nav-item">
+                <NavLink class="nav-link text-secondary" href="stores">
+                    <i class="fas fa-store" aria-hidden="true"></i>
+                    <span class="nav-link-text">Local Stores</span>
+                </NavLink>
+            </li>
+            <li class="nav-item">
+                <NavLink class="nav-link text-secondary" href="directions">
+                    <i class="fa fa-location-arrow" aria-hidden="true"></i>
+                    <span class="nav-link-text">Directions</span>
+                </NavLink>
+            </li>
+            <li class="nav-item">
+                <NavLink class="nav-link text-secondary" href="eorder">
+                    <i class="fa fa-rocket" aria-hidden="true"></i>
+                    <span class="nav-link-text">eOrder</span>
+                </NavLink>
+            </li>
+            <li class="nav-item dropdown">
+                <NavLink class="nav-link text-secondary dropdown-toggle" href="#" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                    <span class="nav-link-text"> Contact</span>
+                </NavLink>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <NavLink class="nav-link" href="careers">
+                        <i class="fa fa-building" aria-hidden="true"></i>
+                        <span class="dropdown-nav-link">Work With Us</span>
+                    </NavLink>
+                    <NavLink class="nav-link" href="franchise">
+                        <i class="fa fa-briefcase" aria-hidden="true"></i>
+                        <span class="dropdown-nav-link">Buy Franchise</span>
+                    </NavLink>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>

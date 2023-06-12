@@ -1,0 +1,89 @@
+﻿[
+  {
+    "Id": 0,
+    "Image": "/img/api/coctail/SpicyGreenJuice.jpg",
+    "Name": "Spicy Green Juice",
+    "PricePerGlass": 65,
+    "GlassQuantityPerMix": 3,
+    "CoctailQuantity": [
+      {
+        "Name": "Apple",
+        "Quantity": 6,
+        "Unit": "Peace"
+      },
+      {
+        "Name": "Cucumbers",
+        "Quantity": 2,
+        "Unit": "Peace"
+      },
+      {
+        "Name": "Jalapeño",
+        "Quantity": 0.25,
+        "Unit": "Slice"
+      },
+      {
+        "Name": "Tequila",
+        "Quantity": 0.03,
+        "Unit": "Liter"
+      }
+    ]
+  },
+  {
+    "Id": 1,
+    "Image": "/img/api/coctail/PineappleLemonGingerBliss.jpg",
+    "Name": "Pineapple Lemoging Bliss",
+    "PricePerGlass": 50,
+    "GlassQuantityPerMix": 3,
+    "CoctailQuantity": [
+      {
+        "Name": "Pineapples",
+        "Quantity": 2,
+        "Unit": "Peace"
+      },
+      {
+        "Name": "Ginger",
+        "Quantity": 2,
+        "Unit": "Tablespoon"
+      },
+      {
+        "Name": "Lemon",
+        "Quantity": 1,
+        "Unit": "Peace"
+      },
+      {
+        "Name": "Rum",
+        "Quantity": 0.03,
+        "Unit": "Stick"
+      }
+    ]
+  },
+  {
+    "Id": 2,
+    "Image": "/img/api/coctail/StrawberryPearAppleDream.jpg",
+    "Name": "Straw PearApple Dream",
+    "PricePerGlass": 60,
+    "GlassQuantityPerMix": 3,
+    "CoctailQuantity": [
+      {
+        "Name": "Apple",
+        "Quantity": 3,
+        "Unit": "Peace"
+      },
+      {
+        "Name": "Pear",
+        "Quantity": 3,
+        "Unit": "Peace"
+      },
+      {
+        "Name": "Strawberry",
+        "Quantity": 12,
+        "Unit": "Peace"
+      },
+      {
+        "Name": "Gin",
+        "Quantity": 0.03,
+        "Unit": "Liter"
+      }
+    ]
+  }
+]
